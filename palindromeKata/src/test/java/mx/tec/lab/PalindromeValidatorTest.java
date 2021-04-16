@@ -1,7 +1,6 @@
 package mx.tec.lab;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.Test;
 
@@ -12,6 +11,32 @@ public class PalindromeValidatorTest {
 	void Given_aString_When_ValidatingPalindrome_Then_True() {
 		// Given
 		String string = "a";
+		
+		// When
+		boolean actualResult = validator.validate(string);
+		
+		// Then
+		boolean expectedResult = true;
+		assertEquals(expectedResult, actualResult);		
+		}
+	
+	@Test
+	void Given_TwoDifferentLetterString_When_ValidatingPalindrome_Then_False() {
+		// Given
+		String string = "ab";
+		
+		// When
+		boolean actualResult = validator.validate(string);
+		
+		// Then
+		boolean expectedResult = false;
+		assertEquals(expectedResult, actualResult);		
+		}
+	
+	@Test
+	void Given_TwoEqualLetterString_When_ValidatingPalindrome_Then_True() {
+		// Given
+		String string = "aa";
 		
 		// When
 		boolean actualResult = validator.validate(string);
